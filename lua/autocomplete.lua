@@ -1,0 +1,1 @@
+--vim.api.nvim_set_keymap("i", "{<CR>", "{<CR><CR>}<Escape>ki<Tab>", { silent = false })
