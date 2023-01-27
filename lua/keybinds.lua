@@ -1,13 +1,13 @@
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- LEADER KEYYYYYYYYYYY
 
 ---| I like having my cursor centered on the screen ok? Leave me alone >:( |---
 vim.api.nvim_set_keymap("n", "{", "{zz", { silent = false }) -- center screen after shift-{
 vim.api.nvim_set_keymap("n", "}", "}zz", { silent = false }) -- center screen after shift-}
 vim.api.nvim_set_keymap("n", "k", "kzz", { silent = false }) -- change up (k) to center screen each time
 vim.api.nvim_set_keymap("n", "j", "jzz", { silent = false }) -- change down (j) to center screen each time
---vim.api.nvim_set_keymap("i", "<Enter>", "<Enter><Escape>zzi", { silent = false }) -- center screen after hitting the enter key in insert mode
---vim.api.nvim_set_keymap("i", "<Delete>", "<Delete><Escape>zzi", { silent = false }) -- center screen after hitting the delete key in insert mode
---vim.api.nvim_set_keymap("n", "<Enter>", "<Enter>zz", { silent = false }) -- center screen after hitting the enter key in insert mode
+	--vim.api.nvim_set_keymap("i", "<Enter>", "<Enter><Escape>zzi", { silent = false }) -- center screen after hitting the enter key in insert mode
+	--vim.api.nvim_set_keymap("i", "<Delete>", "<Delete><Escape>zzi", { silent = false }) -- center screen after hitting the delete key in insert mode
+	--vim.api.nvim_set_keymap("n", "<Enter>", "<Enter>zz", { silent = false }) -- center screen after hitting the enter key in insert mode
 
 
 ---| keybinds |---
@@ -44,6 +44,8 @@ vim.api.nvim_set_keymap("n", "<A-N>", ":set rnu<CR>", { silent = true }) -- show
 vim.api.nvim_set_keymap("n", "<A-M>", ":set nornu<CR>", { silent = true }) -- don't show relativenumbers
 vim.api.nvim_set_keymap("n", "<A-V>", ":set nu<CR>", { silent = true }) -- show line numbers
 vim.api.nvim_set_keymap("n", "<A-B>", ":set nonu<CR>", { silent = true }) -- don't show line numbers
+vim.api.nvim_set_keymap("n", "<A-A>", ":set spell<CR>", { silent = true }) -- spellcheck on
+vim.api.nvim_set_keymap("n", "<A-S>", ":set nospell<CR>", { silent = true }) -- spellcheck off
 
 ---| split windows |---
 vim.api.nvim_set_keymap("n", "<A-U>", ":split<CR>", { silent = true }) -- top to bottom split
@@ -67,6 +69,16 @@ vim.api.nvim_set_keymap("n", "<A-Right>", "gt", { silent = true }) -- go forward
 vim.api.nvim_set_keymap("n", "<A-Left>", "gT", { silent = true }) -- go backwards one tab
 vim.api.nvim_set_keymap("n", "<A-Up>", ":tabc<CR>", { silent = true }) -- close current tab
 vim.api.nvim_set_keymap("n", "<A-S-Up>", ":tabo<CR>", { silent = true }) -- close all tabs except current one
+
+---| clipboard cuz clipboard settings get weird |---
+-- "https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534/2"
+-- "If you are using Linux, you need to install xclip if using X11 or wl-copy and wl-paste if using Wayland."
+-- "sudo pacman -S xclip"
+vim.api.nvim_set_keymap("v", "<Leader>Y", "\"*Y", { silent = true }) -- yank selected to primary clipboard (copy on select with middle mouse button)
+vim.api.nvim_set_keymap("v", "<Leader>P", "\"*P", { silent = true }) -- paste from primary clipboard (copy on select with middle mouse button)
+vim.api.nvim_set_keymap("v", "<Leader>y", "\"+y", { silent = true }) -- yank selected to system clipboard
+vim.api.nvim_set_keymap("v", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
+
 
 
 --[[

@@ -33,3 +33,12 @@ vim.opt.pumheight = 20 -- popup menu height
 vim.opt.pumwidth = 30 -- popup menu width
 
 ---| window tabs |---
+
+
+---| TERMINAL TITLE |---
+vim.opt.title = true
+vim.opt.titlelen = 50
+vim.opt.titlestring = "| ~^_^~ ~^_^~ | NEOVIM | ~^_^~ ~^_^~ |"
+vim.opt.titleold = "| ~^_^~ ~^_^~ | CLOSING NEOVIM | ~^_^~ ~^_^~ |"
+vim.opt.icon = true
+vim.opt.iconstring = "| I LOVE NEOVIM! |"
