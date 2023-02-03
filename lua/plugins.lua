@@ -43,20 +43,28 @@ return require('packer').startup(function(use)
 
 -------------------------------------------------------------------------------------------------------------------------
 
-	--| fuzzy finder |--
+	---| fuzzy finder |---
 	use 
 	{
 		"nvim-telescope/telescope.nvim", tag = "0.1.0",
 		requires = { {"nvim-lua/plenary.nvim"} }
 	}
-	--| COLOR SCHEMES |--
+	---| COLOR SCHEMES |---
 	use "agude/vim-eldar"
 	use "tomasr/molokai"
 	use "jordst/colorscheme"
 	use "folke/tokyonight.nvim"
 
+	---| cool looking status bar |---
+	use
+	{
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true }
+	}
+
 	---| LSP START |---
-	use {
+	use 
+	{
 		'VonHeikemen/lsp-zero.nvim',
 		requires =
 		{

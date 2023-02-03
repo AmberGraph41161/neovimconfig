@@ -9,14 +9,13 @@ vim.api.nvim_set_keymap("n", "j", "jzz", { silent = false }) -- change down (j) 
 	--vim.api.nvim_set_keymap("i", "<Delete>", "<Delete><Escape>zzi", { silent = false }) -- center screen after hitting the delete key in insert mode
 	--vim.api.nvim_set_keymap("n", "<Enter>", "<Enter>zz", { silent = false }) -- center screen after hitting the enter key in insert mode
 
-
----| keybinds |---
-vim.api.nvim_set_keymap("n", ":Q!", ":q!", { silent = false }) -- FIXING Q! TYPOS
-vim.api.nvim_set_keymap("n", ":WQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
-vim.api.nvim_set_keymap("n", ":Wq", ":wq", { silent = false }) -- FIXING WQ TYPOS
-vim.api.nvim_set_keymap("n", ":wQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
-vim.api.nvim_set_keymap("n", ":W", ":w", { silent = false }) -- FIXING W TYPOS
-vim.api.nvim_set_keymap("n", ":Q", ":wq", { silent = false }) -- FIXING Q TYPOS
+---| KEYBINDS |---
+--vim.api.nvim_set_keymap("n", ":Q!", ":q!", { silent = false }) -- FIXING Q! TYPOS
+--vim.api.nvim_set_keymap("n", ":WQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
+--vim.api.nvim_set_keymap("n", ":Wq", ":wq", { silent = false }) -- FIXING WQ TYPOS
+--vim.api.nvim_set_keymap("n", ":wQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
+--vim.api.nvim_set_keymap("n", ":W", ":w", { silent = false }) -- FIXING W TYPOS
+--vim.api.nvim_set_keymap("n", ":Q", ":wq", { silent = false }) -- FIXING Q TYPOS
 vim.api.nvim_set_keymap("n", "<C-z>", ":wq", { silent = false }) -- makes sure I don't accidentally fat finger and forcequit vim
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { silent = false }) -- center screen after ctrl-d
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { silent = false }) -- center screen after ctrl-u
@@ -30,7 +29,6 @@ vim.api.nvim_set_keymap("n", "N", "Nzz", { silent = false }) -- center screen wh
 vim.api.nvim_set_keymap("n", "<C-r>", "R", { noremap = true, silent = false }) -- swap ctrl-r with r (swap undo with replacemode)
 vim.api.nvim_set_keymap("n", "R", "<C-r>", { noremap = true, silent = false }) -- swap r with ctrl-r (swap replacemode with undo)
 vim.api.nvim_set_keymap("n", "U", "u", { noremap = true, silent = false }) -- U and u are synonymous now
-
 ---| toggle settings |---
 vim.api.nvim_set_keymap("n", "<A-O>", ":set hls<CR>", { silent = true }) -- highlight search
 vim.api.nvim_set_keymap("n", "<A-P>", ":set nohls<CR>", { silent = true }) -- don't highlight search
@@ -46,8 +44,11 @@ vim.api.nvim_set_keymap("n", "<A-V>", ":set nu<CR>", { silent = true }) -- show 
 vim.api.nvim_set_keymap("n", "<A-B>", ":set nonu<CR>", { silent = true }) -- don't show line numbers
 vim.api.nvim_set_keymap("n", "<A-A>", ":set spell<CR>", { silent = true }) -- spellcheck on
 vim.api.nvim_set_keymap("n", "<A-S>", ":set nospell<CR>", { silent = true }) -- spellcheck off
+vim.api.nvim_set_keymap("n", "<A-Z>", ":set wrap<CR>:set spell<CR>:set nocul<CR>:set nocuc<CR>", { silent = true }) -- DOCUMENT MODE
+vim.api.nvim_set_keymap("n", "<A-X>", ":set nowrap<CR>:set nospell<CR>:set cul<CR>:set cuc<CR>", { silent = true }) -- CODE MODE
 
----| split windows |---
+
+---| SPLIT WINDOWS |---
 vim.api.nvim_set_keymap("n", "<A-U>", ":split<CR>", { silent = true }) -- top to bottom split
 vim.api.nvim_set_keymap("n", "<A-I>", ":vsplit<CR>", { silent = true }) -- left to right split
 --vim.api.nvim_set_keymap("n", "<A-Y>", "<C-W>n", { silent = true }) -- create new empty window left to right
@@ -63,21 +64,32 @@ vim.api.nvim_set_keymap("n", "<A-Y>", "<C-W>w", { silent = false }) -- switch to
 vim.api.nvim_set_keymap("n", "<A-H>", "<C-W>q", { silent = false }) -- quit current window
 vim.api.nvim_set_keymap("n", "<A-T>", "<C-W>=", { silent = false }) -- make all windows equal size
 
----| window tabs |---
+---| WINDOW TABS |---
 vim.api.nvim_set_keymap("n", "<A-Down>", ":tabnew<CR>", { silent = true }) -- create new tab
 vim.api.nvim_set_keymap("n", "<A-Right>", "gt", { silent = true }) -- go forward one tab
 vim.api.nvim_set_keymap("n", "<A-Left>", "gT", { silent = true }) -- go backwards one tab
 vim.api.nvim_set_keymap("n", "<A-Up>", ":tabc<CR>", { silent = true }) -- close current tab
 vim.api.nvim_set_keymap("n", "<A-S-Up>", ":tabo<CR>", { silent = true }) -- close all tabs except current one
 
----| clipboard cuz clipboard settings get weird |---
--- "https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534/2"
--- "If you are using Linux, you need to install xclip if using X11 or wl-copy and wl-paste if using Wayland."
--- "sudo pacman -S xclip"
+---| CLIPBOARD |---
+	-- "https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534/2"
+	-- "If you are using Linux, you need to install xclip if using X11 or wl-copy and wl-paste if using Wayland."
+	-- "sudo pacman -S xclip"
 vim.api.nvim_set_keymap("v", "<Leader>Y", "\"*Y", { silent = true }) -- yank selected to primary clipboard (copy on select with middle mouse button)
 vim.api.nvim_set_keymap("v", "<Leader>P", "\"*P", { silent = true }) -- paste from primary clipboard (copy on select with middle mouse button)
 vim.api.nvim_set_keymap("v", "<Leader>y", "\"+y", { silent = true }) -- yank selected to system clipboard
 vim.api.nvim_set_keymap("v", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
+
+---| SPECIAL PASTES |---
+vim.api.nvim_set_keymap("n", "<Leader>1", "i" .. -- you concatenate string with ".." in lua and not "+" for some reason...
+"---[Verse:1]---<CR><Escape>xxi" ..
+"---[Chorus:1]---<CR><Escape>xxi" ..
+"---[Bridge:1]---<CR><Escape>xxi" ..
+"---[Pre-Chorus:1]---<CR><Escape>xxi" ..
+"---[Intro:1]---<CR><Escape>xxi" ..
+"---[Ending:1]---<CR><Escape>xxi" ..
+"---[Other:1]---<Escape>"
+, { silent = false });
 
 
 

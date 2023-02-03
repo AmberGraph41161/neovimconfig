@@ -3,10 +3,12 @@ require("keybinds")
 require("plugins")
 require("colors")
 require("views")
+require("luacommands")
 
 ---| PLUGIN SETTINGS/SETUP |---
 -- setup must have plugins first
 require("plugins/telescope")
+require("plugins/lualine")
 
 -- setup lsp plugins after
 require("mason").setup({
