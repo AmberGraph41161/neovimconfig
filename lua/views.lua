@@ -15,6 +15,8 @@ vim.opt.cursorline = true -- cursorline on by default (TOGGLE KEYBINDS)
 vim.opt.cursorcolumn = true -- cursorcolumn on by default (TOGGLE KEYBINDS)
 vim.opt.scroll = 8
 vim.opt.ruler = true
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 20
 
 ---| TABS OR SPACES? LOL |---
 vim.opt.shiftwidth = 4

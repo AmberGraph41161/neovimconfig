@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
 	use "tomasr/molokai"
 	use "jordst/colorscheme"
 	use "folke/tokyonight.nvim"
+	use "catppuccin/nvim"
 
 	---| cool looking status bar |---
 	use

@@ -3,22 +3,24 @@ vim.g.mapleader = " " -- LEADER KEYYYYYYYYYYY
 ---| I like having my cursor centered on the screen ok? Leave me alone >:( |---
 vim.api.nvim_set_keymap("n", "{", "{zz", { silent = false }) -- center screen after shift-{
 vim.api.nvim_set_keymap("n", "}", "}zz", { silent = false }) -- center screen after shift-}
-vim.api.nvim_set_keymap("n", "k", "kzz", { silent = false }) -- change up (k) to center screen each time
-vim.api.nvim_set_keymap("n", "j", "jzz", { silent = false }) -- change down (j) to center screen each time
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { silent = false }) -- center screen after ctrl-d
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { silent = false }) -- center screen after ctrl-u
+	--vim.api.nvim_set_keymap("n", "k", "kzz", { silent = false }) -- change up (k) to center screen each time
+	--vim.api.nvim_set_keymap("n", "j", "jzz", { silent = false }) -- change down (j) to center screen each time
 	--vim.api.nvim_set_keymap("i", "<Enter>", "<Enter><Escape>zzi", { silent = false }) -- center screen after hitting the enter key in insert mode
 	--vim.api.nvim_set_keymap("i", "<Delete>", "<Delete><Escape>zzi", { silent = false }) -- center screen after hitting the delete key in insert mode
 	--vim.api.nvim_set_keymap("n", "<Enter>", "<Enter>zz", { silent = false }) -- center screen after hitting the enter key in insert mode
 
 ---| KEYBINDS |---
---vim.api.nvim_set_keymap("n", ":Q!", ":q!", { silent = false }) -- FIXING Q! TYPOS
---vim.api.nvim_set_keymap("n", ":WQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
---vim.api.nvim_set_keymap("n", ":Wq", ":wq", { silent = false }) -- FIXING WQ TYPOS
---vim.api.nvim_set_keymap("n", ":wQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
---vim.api.nvim_set_keymap("n", ":W", ":w", { silent = false }) -- FIXING W TYPOS
---vim.api.nvim_set_keymap("n", ":Q", ":wq", { silent = false }) -- FIXING Q TYPOS
+	--vim.api.nvim_set_keymap("n", ":Q!", ":q!", { silent = false }) -- FIXING Q! TYPOS
+	--vim.api.nvim_set_keymap("n", ":WQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
+	--vim.api.nvim_set_keymap("n", ":Wq", ":wq", { silent = false }) -- FIXING WQ TYPOS
+	--vim.api.nvim_set_keymap("n", ":wQ", ":wq", { silent = false }) -- FIXING WQ TYPOS
+	--vim.api.nvim_set_keymap("n", ":W", ":w", { silent = false }) -- FIXING W TYPOS
+	--vim.api.nvim_set_keymap("n", ":Q", ":wq", { silent = false }) -- FIXING Q TYPOS
+	--vim.api.nvim_set_keymap("n", "<A-{>", "[{zz", { silent = false })
+	--vim.api.nvim_set_keymap("n", "<A-}>", "[}zz", { silent = false })
 vim.api.nvim_set_keymap("n", "<C-z>", ":wq", { silent = false }) -- makes sure I don't accidentally fat finger and forcequit vim
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { silent = false }) -- center screen after ctrl-d
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { silent = false }) -- center screen after ctrl-u
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<Enter>", { silent = false }) -- save file on ctrl-s
 vim.api.nvim_set_keymap("i", "<C-s>", "<Escape>:w<Enter>", { silent = false }) -- save file on ctrl-s
 vim.api.nvim_set_keymap("n", "<C-a>", "gg^vG$", { silent = false }) -- select all on ctrl-a
@@ -29,6 +31,7 @@ vim.api.nvim_set_keymap("n", "N", "Nzz", { silent = false }) -- center screen wh
 vim.api.nvim_set_keymap("n", "<C-r>", "R", { noremap = true, silent = false }) -- swap ctrl-r with r (swap undo with replacemode)
 vim.api.nvim_set_keymap("n", "R", "<C-r>", { noremap = true, silent = false }) -- swap r with ctrl-r (swap replacemode with undo)
 vim.api.nvim_set_keymap("n", "U", "u", { noremap = true, silent = false }) -- U and u are synonymous now
+
 ---| toggle settings |---
 vim.api.nvim_set_keymap("n", "<A-O>", ":set hls<CR>", { silent = true }) -- highlight search
 vim.api.nvim_set_keymap("n", "<A-P>", ":set nohls<CR>", { silent = true }) -- don't highlight search
@@ -76,9 +79,9 @@ vim.api.nvim_set_keymap("n", "<A-S-Up>", ":tabo<CR>", { silent = true }) -- clos
 	-- "If you are using Linux, you need to install xclip if using X11 or wl-copy and wl-paste if using Wayland."
 	-- "sudo pacman -S xclip"
 vim.api.nvim_set_keymap("v", "<Leader>Y", "\"*Y", { silent = true }) -- yank selected to primary clipboard (copy on select with middle mouse button)
-vim.api.nvim_set_keymap("v", "<Leader>P", "\"*P", { silent = true }) -- paste from primary clipboard (copy on select with middle mouse button)
+vim.api.nvim_set_keymap("n", "<Leader>P", "\"*P", { silent = true }) -- paste from primary clipboard (copy on select with middle mouse button)
 vim.api.nvim_set_keymap("v", "<Leader>y", "\"+y", { silent = true }) -- yank selected to system clipboard
-vim.api.nvim_set_keymap("v", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
+vim.api.nvim_set_keymap("n", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
 
 ---| SPECIAL PASTES |---
 vim.api.nvim_set_keymap("n", "<Leader>1", "i" .. -- you concatenate string with ".." in lua and not "+" for some reason...
