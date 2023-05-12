@@ -1,2 +1,2 @@
 # neovimconfig
-Personal Neovim Config Files as of Monday, February 13, 2023 11:40:58AM (2/13/2023)
+Personal Neovim config Files as of Thursday, May 11, 2023, 11:46:27PM (5/11/2023
