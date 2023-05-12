@@ -1,0 +1,49 @@
+#wrote all this in about 10 minutes or so. rn, as I write this line, it is: Saturday, April 29, 2023, 12:02:55AM
+unmapAll
+
+#SPEEEEEEED RAHHHHHHH
+map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
+map <c-f> LinkHints.activateModeToOpenInNewForegroundTab
+
+#modes
+map i enterInsertMode
+map v enterVisualMode
+map / enterFindMode
+map n performFind
+map N performBackwardsFind
+
+#movement
+map h scrollLeft
+map j scrollDown
+map k scrollUp
+map l scrollRight
+map J scrollPageDown
+map K scrollPageUp
+map <c-j> scrollToBottom
+map <c-k> scrollToTop
+
+#page shortcuts
+map <c-r> reload
+map H goBack
+map L goForward
+
+#tab stuff
+map <a-Up> removeTab
+map <a-Down> createTab
+map <a-Left> previousTab
+map <a-Right> nextTab
+
+map <c-Up> togglePinTab
+map <c-Down> duplicateTab
+map <c-Left> firstTab
+map <c-Right> lastTab
+map <c-m> toggleMuteTab
+
+#copy and paste yuhhhhh
+map yy copyCurrentUrl
+map p openCopiedUrlInCurrentTab
+map P openCopiedUrlInNewTab
+
+#rand
+map ? showHelp

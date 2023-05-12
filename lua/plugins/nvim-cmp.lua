@@ -68,3 +68,10 @@ cmp.setup({
 	require('lspconfig')['clangd'].setup {
 	capabilities = capabilities
 }
+
+--[[
+-- allow autocomplete in any buffer
+require("cmp").setup {
+	enabled = false
+}
+]]

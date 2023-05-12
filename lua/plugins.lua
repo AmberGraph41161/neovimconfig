@@ -43,27 +43,41 @@ return require('packer').startup(function(use)
 
 -------------------------------------------------------------------------------------------------------------------------
 
-	---| fuzzy finder |---
-	use 
+	---| finder stuff |---
+	-- fuzzy finder
+	use
 	{
 		"nvim-telescope/telescope.nvim", tag = "0.1.0",
 		requires = { {"nvim-lua/plenary.nvim"} }
 	}
+
+	-- tree sitter
+	use
+	{
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+		-- tag = "nightly" -- optional, updated every week
+	}
+
 	---| COLOR SCHEMES |---
 	use "agude/vim-eldar"
 	use "tomasr/molokai"
 	use "jordst/colorscheme"
 	use "folke/tokyonight.nvim"
 	use "catppuccin/nvim"
+	--use "	
 
-	---| cool looking status bar |---
+	---| BLING |---
+	use "norcalli/nvim-colorizer.lua"
 	use
 	{
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
 	}
 
-	---| LSP START |---
+	---| LSP-ZERO |---
 	use 
 	{
 		'VonHeikemen/lsp-zero.nvim',
@@ -88,7 +102,6 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
-	---| LSP END |---
 
 -------------------------------------------------------------------------------------------------------------------------
 

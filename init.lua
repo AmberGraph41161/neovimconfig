@@ -6,11 +6,12 @@ require("views")
 require("luacommands")
 
 ---| PLUGIN SETTINGS/SETUP |---
--- setup must have plugins first
 require("plugins/telescope")
 require("plugins/lualine")
+require("plugins/colorizer")
+require("plugins/nvim-tree")
 
--- setup lsp plugins after
+---| LSP-ZERO stuff |---
 require("mason").setup({
 	ui =
 	{
@@ -26,4 +27,4 @@ require("plugins/nvim-lspconfig")
 require("plugins/nvim-cmp")
 
 ---| :D |---
-print("\"init.lua\" loaded. ~^_^~")
+print("| ~^_^~ ~^_^~ | \"init.lua\" loaded. | ~^_^~ ~^_^~ |")

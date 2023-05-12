@@ -7,6 +7,10 @@ vim.opt.listchars =
 	tab = " ",
 }
 
+
+---| THE MOUSE MAKES YOU SLOW |---
+vim.opt.mouse = ""
+
 ---| CURSOR/LINE PROPERTIES |---
 vim.opt.wrap = false
 vim.opt.number = true -- on by default (TOGGLE KEYBINDS)
@@ -17,6 +21,8 @@ vim.opt.scroll = 8
 vim.opt.ruler = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 20
+-- vim.opt.startofline = true
+vim.opt.scroll = 10
 
 ---| TABS OR SPACES? LOL |---
 vim.opt.shiftwidth = 4
