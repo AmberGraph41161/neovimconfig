@@ -6,7 +6,41 @@
 	:MasonLog - opens the mason.nvim log file in a new tab window
 ]]
 
----| DEFAULT CONFIGURATION |---
+
+require("mason").setup(DEFAULT_SETTINGS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---| DEFAULT CONFIGURATION |--- "https://github.com/williamboman/mason.nvim" broken as of Monday, March 25, 2024, 11:12:32PM. fix when you get the chance future me idk
+--[[
 local DEFAULT_SETTINGS = {
     -- The directory in which to install packages.
     install_root_dir = path.concat { vim.fn.stdpath "data", "mason" },
@@ -103,3 +137,4 @@ local DEFAULT_SETTINGS = {
         },
     },
 }
+]]

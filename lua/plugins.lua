@@ -43,15 +43,15 @@ return require('packer').startup(function(use)
 
 -------------------------------------------------------------------------------------------------------------------------
 
-	---| finder stuff |---
+	---| CD WITH SPEED |---
 	-- fuzzy finder
 	use
 	{
-		"nvim-telescope/telescope.nvim", tag = "0.1.0",
+		"nvim-telescope/telescope.nvim", tag = "0.1.5",
 		requires = { {"nvim-lua/plenary.nvim"} }
 	}
 
-	-- tree sitter
+	-- tree file viewer. kinda pointless, might remove idk
 	use
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -67,7 +67,6 @@ return require('packer').startup(function(use)
 	use "jordst/colorscheme"
 	use "folke/tokyonight.nvim"
 	use "catppuccin/nvim"
-	--use "	
 
 	---| BLING |---
 	use "norcalli/nvim-colorizer.lua"
@@ -77,31 +76,36 @@ return require('packer').startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
 	}
 
-	---| LSP-ZERO |---
-	use 
+	---| LSP STUFF |---
+	-- main
+	use "williamboman/mason.nvim" -- manage lsp servers
+	use "williamboman/mason-lspconfig.nvim" -- stuff like "ensure installed" for lsp
+	use "neovim/nvim-lspconfig" -- make nvimlsp setup easier (no hassle)
+
+	-- snippets
+	use
 	{
-		'VonHeikemen/lsp-zero.nvim',
-		requires =
-		{
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},         -- Required
-
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-buffer'},       -- Optional
-			{'hrsh7th/cmp-path'},         -- Optional
-			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-			{'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
-		}
+		"L3MON4D3/LuaSnip",
+		tag = "v2.*",
+		run = "make install_jsregexp"
 	}
+	use "saadparwaiz1/cmp_luasnip" -- bridges custom snippets to nvim-cmp
+
+	-- autocomplete
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-nvim-lsp" --bridge nvim-cmp with lsp stuff
+
+	use "amarakon/nvim-cmp-buffer-lines"
+	use "hrsh7th/cmp-calc"
+	use "f3fora/cmp-spell"
+	--use "hrsh7th/cmp-emoji"
+	--use "rasulomaroff/cmp-bufname"
+	--use "PhilRunninger/cmp-rpncalc"
+	--use "dmitmel/cmp-digraphs"
+	--use "hrsh7th/cmp-omni"
+
 
 -------------------------------------------------------------------------------------------------------------------------
 
