@@ -14,6 +14,7 @@ require("plugins/mason")
 require("plugins/lsp")
 require("plugins/nvim-cmp")
 require("plugins/snip")
+require("plugins/treesitter")
 
 require("plugins/lualine")
 require("plugins/colorizer")

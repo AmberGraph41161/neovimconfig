@@ -61,12 +61,18 @@ return require('packer').startup(function(use)
 		-- tag = "nightly" -- optional, updated every week
 	}
 
-	---| COLOR SCHEMES |---
+	---| COLORS |---
 	use "agude/vim-eldar"
 	use "tomasr/molokai"
 	use "jordst/colorscheme"
 	use "folke/tokyonight.nvim"
 	use "catppuccin/nvim"
+	use "craftzdog/solarized-osaka.nvim"
+	use "NLKNguyen/papercolor-theme"
+	use "miikanissi/modus-themes.nvim"
+	use "rebelot/kanagawa.nvim"
+	use "bluz71/vim-nightfly-colors"
+	use "bluz71/vim-moonfly-colors"
 
 	---| BLING |---
 	use "norcalli/nvim-colorizer.lua"
@@ -105,6 +111,18 @@ return require('packer').startup(function(use)
 	--use "PhilRunninger/cmp-rpncalc"
 	--use "dmitmel/cmp-digraphs"
 	--use "hrsh7th/cmp-omni"
+
+	-- better syntax highlighting stuff yeaaaa
+	use -- "https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation"
+	{
+		"nvim-treesitter/nvim-treesitter",
+		--run = ":TSUpdate"
+
+		run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+	}
 
 
 -------------------------------------------------------------------------------------------------------------------------

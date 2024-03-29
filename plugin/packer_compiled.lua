@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
   },
-  ["cmp-emoji"] = {
-    loaded = true,
-    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-emoji",
-    url = "https://github.com/hrsh7th/cmp-emoji"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -119,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/colorscheme",
     url = "https://github.com/jordst/colorscheme"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -133,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["modus-themes.nvim"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/modus-themes.nvim",
+    url = "https://github.com/miikanissi/modus-themes.nvim"
   },
   molokai = {
     loaded = true,
@@ -169,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -179,10 +189,20 @@ _G.packer_plugins = {
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["solarized-osaka.nvim"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/solarized-osaka.nvim",
+    url = "https://github.com/craftzdog/solarized-osaka.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -198,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/vim-eldar",
     url = "https://github.com/agude/vim-eldar"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/bluz71/vim-moonfly-colors"
+  },
+  ["vim-nightfly-colors"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/vim-nightfly-colors",
+    url = "https://github.com/bluz71/vim-nightfly-colors"
   }
 }
 

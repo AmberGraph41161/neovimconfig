@@ -1,7 +1,7 @@
 require("lualine").setup {
 	options = {
 		icons_enabled = true,
-		theme = "tokyonight", -- same thing as a color scheme
+		theme = "auto", -- same thing as a color scheme
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
@@ -65,4 +65,60 @@ require("lualine").setup {
 	- `searchcount` (number of search matches when hlsearch is active)
 	- `tabs` (shows currently available tabs)
 	- `windows` (shows currently available windows)
+]]
+
+
+
+
+--[[
+# Available themes
+
+### auto
+
+auto is a special theme. It will automatically load theme for your colorscheme.
+If there's no theme available for your colorscheme then
+it'll try it's best to generate one.
+
+### 16color
+### ayu_dark
+### ayu_light
+### ayu_mirage
+### base16
+### codedark
+### dracula
+### everforest
+### gruvbox_dark
+### gruvbox_light
+### gruvbox
+### gruvbox-material
+### horizon
+### iceberg_dark
+### iceberg_light
+### iceberg
+### jellybeans
+### material
+### modus-vivendi
+### molokai
+### moonfly
+## nightfly
+### nord
+### OceanicNext
+### onedark
+### onelight
+### palenight
+### papercolor_dark
+### papercolor_light
+### PaperColor
+### powerline
+### powerline_dark
+### pywal
+#### `wal --theme ashes`
+#### `wal --theme -l github`
+#### `wal --theme vscode`
+#### `wal --theme zenburn`
+### seoul256
+### solarized_dark
+### solarized_light
+### Tomorrow
+### wombat
 ]]
