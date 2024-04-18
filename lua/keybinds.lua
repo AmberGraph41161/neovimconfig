@@ -78,3 +78,11 @@ vim.api.nvim_set_keymap("v", "<Leader>Y", "\"*Y", { silent = true }) -- yank sel
 vim.api.nvim_set_keymap("n", "<Leader>P", "\"*P", { silent = true }) -- paste from primary clipboard (copy on select with middle mouse button)
 vim.api.nvim_set_keymap("v", "<Leader>y", "\"+y", { silent = true }) -- yank selected to system clipboard
 vim.api.nvim_set_keymap("n", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
+
+---| DATE/TIME |---
+function GETDATE()
+	os.execute("date '+%A, %B %d, %Y, %T' | xclip -selection clipboard")
+	print("date copied to system clipboard")
+end
+
+vim.api.nvim_set_keymap("n", "<Leader>d", ":lua GETDATE()<CR>", { silent = true })

@@ -1,22 +1,5 @@
 -- "https://github.com/L3MON4D3/LuaSnip"
-
----| KEYBINDS |---
---[[
-
-vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, { silent = true })
-vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, { silent = true })
-vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, { silent = true })
-
-vim.keymap.set({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
-
-]]
-
----| CUSTOM SNIPPETS |---
-
+---| default luasnip aliases |---
 local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -45,6 +28,20 @@ local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
+
+---| KEYBINDS |--- broken keybinds on purpose for now, as of Sunday, April 7, 2024, 10:43:37PM
+vim.keymap.set({"n"}, "<C-Q-S-B>", function() ls.expand() end, { silent = true })
+vim.keymap.set({"n", "s"}, "<C-Q-B-S>", function() ls.jump( 1) end, { silent = true })
+vim.keymap.set({"n", "s"}, "<C-S-A-D>", function() ls.jump(-1) end, { silent = true })
+
+vim.keymap.set({"n", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
+
+
+---| CUSTOM SNIPPETS |---
 ls.add_snippets("all", {
 	-- cpp hello world
 	s(":hello", {
@@ -69,5 +66,5 @@ ls.add_snippets("all", {
 			"---[Ending:1]---",
 			"---[Other:1]---",
 		})
-	})
+	}),
 })

@@ -1,9 +1,8 @@
 ---| mason-lspconfig |---
 require("mason-lspconfig").setup {
-	ensure_installed = { "clangd", "lua_ls", "cmake" },
+	ensure_installed = { "clangd", "lua_ls", "cmake", "jdtls" },
 	automatic_installation = false,
 }
-
 
 ---| cmp-nvim-lsp |---
 	-- "https://github.com/hrsh7th/cmp-nvim-lsp"
@@ -24,6 +23,9 @@ require('lspconfig').cmake.setup {
 	capabilities = capabilities,
 }
 
+require('lspconfig').jdtls.setup {
+	capabilities = capabilities,
+}
 
 ---| nvim-lspconfig |---
 	--[[ :LspInfo shows the status of active and configured language servers.

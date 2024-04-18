@@ -3,7 +3,7 @@
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = {
-	"cpp", "cmake", "make", "python", "rust", "yaml", "toml", "bash", -- languages I want
+	"cpp", "cmake", "make", "python", "rust", "java", "yaml", "toml", "json", "bash", -- languages I want
 	"c", "lua", "vim", "vimdoc", "query" -- must be installed cuz tree sitter stuff idk
 	},
 
@@ -12,7 +12,7 @@ require'nvim-treesitter.configs'.setup {
 
 	-- Automatically install missing parsers when entering buffer
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-	auto_install = true,
+	auto_install = false,
 
 	-- List of parsers to ignore installing (or "all")
 	ignore_install = { "javascript" },

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/jinwoo_k/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",

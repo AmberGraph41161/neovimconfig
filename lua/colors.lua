@@ -1,7 +1,8 @@
 --vim.opt.syntax = cpp
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd.colorscheme("moonfly")
+vim.cmd.colorscheme("nightfly")
+--vim.cmd.colorscheme("moonfly")
 --vim.cmd.colorscheme("tokyonight-night")
 --vim.cmd.colorscheme("kanagawa-dragon")
 --vim.cmd.colorscheme("lunaperche")
