@@ -80,7 +80,7 @@ vim.api.nvim_set_keymap("v", "<Leader>y", "\"+y", { silent = true }) -- yank sel
 vim.api.nvim_set_keymap("n", "<Leader>p", "\"+p", { silent = true }) -- paste from system clipboard
 
 ---| DATE/TIME |---
-function GETDATE()
+function GETDATE() -- only works for x11 cuz xclip shenanigans
 	os.execute("date '+%A, %B %d, %Y, %T' | xclip -selection clipboard")
 	print("date copied to system clipboard")
 end

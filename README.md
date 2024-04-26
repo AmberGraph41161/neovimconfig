@@ -1,5 +1,5 @@
 # neovimconfig
 
-Personal neovim config files as of Wednesday, April 17, 2024, 21:46:58
+Personal neovim config files as of Friday, April 26, 2024, 01:35:58
 
-cleaned up all of my old config stuff to be a little nicer one more lkjsadf;lkasjd;flj
+added a couple more snips this time for things I would actually use, fixed a couple keybindings, etc etc. minor stuff idk

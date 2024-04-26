@@ -44,7 +44,7 @@ end, {silent = true})
 ---| CUSTOM SNIPPETS |---
 ls.add_snippets("all", {
 	-- cpp hello world
-	s(":hello", {
+	s(":hellocpp", {
 		t({
 			"#include <iostream>",
 			"",
@@ -53,6 +53,47 @@ ls.add_snippets("all", {
 			"	std::cout << \"Hello World!\" << std::endl;",
 			"	return 0;",
 			"}"
+		})
+	}),
+
+	s(":hellojava", {
+		t({
+			"public class main",
+			"{",
+			"	public static void main(String[] args)",
+			"	{",
+			"		System.out.println(\"Hello World!\");",
+			"	}",
+			"}"
+		})
+	}),
+
+	s(":hellosfmlcpp", {
+		t({
+			"#include <SFML/Graphics.hpp>",
+			"",
+			"int main()",
+			"{",
+			"	sf::RenderWindow window(sf::VideoMode(200, 200), \"SFML works!\");",
+			"	sf::CircleShape shape(100.f);",
+			"	shape.setFillColor(sf::Color::Green);",
+			"",
+			"	while (window.isOpen())",
+			"	{",
+			"		sf::Event event;",
+			"		while (window.pollEvent(event))",
+			"		{",
+			"			if (event.type == sf::Event::Closed)",
+			"				window.close();",
+			"		}",
+			"",
+			"		window.clear();",
+			"		window.draw(shape);",
+			"		window.display();",
+			"	}",
+			"	",
+			"	return 0;",
+			"}",
 		})
 	}),
 
