@@ -1,19 +1,42 @@
-require("telescope").setup {
-	defaults = {
-		-- "https://github.com/nvim-telescope/telescope.nvim"
-	},
-	pickers = {
-		find_files = {
-			--theme = "dropdown", -- "dropdown", "cursor", "ivy"
-			winblend = 0
+-- different togglable setup settings
+local function defaultSetup()
+	require("telescope").setup {
+		defaults = {
+			-- "https://github.com/nvim-telescope/telescope.nvim"
+		},
+		pickers = {
+			find_files = {
+				--theme = "dropdown", -- "dropdown", "cursor", "ivy"
+				winblend = 0
+			}
+		},
+		extensions = {
 		}
-	},
-	extensions = {
 	}
-}
+end
 
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {}) -- find files
+local function dotfileSetup()
+	require("telescope").setup {
+		defaults = {
+			-- "https://github.com/nvim-telescope/telescope.nvim"
+		},
+		pickers = {
+			find_files = {
+				--theme = "dropdown", -- "dropdown", "cursor", "ivy"
+				find_command = { "rg", "--files", "--hidden" },
+				winblend = 0
+			}
+		},
+		extensions = {
+		}
+	}
+end
+defaultSetup(); -- call default setup setting so we can actually do stuff
+
+
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", function() defaultSetup(); builtin.find_files(); end, {}) -- find files
+vim.keymap.set("n", "<leader>fF", function() dotfileSetup(); builtin.find_files(); end, {}) -- find files
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {}) -- live grep
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {}) -- builtin buffers
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- builtin help tags
