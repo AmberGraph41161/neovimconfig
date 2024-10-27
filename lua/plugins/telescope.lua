@@ -31,16 +31,22 @@ local function dotfileSetup()
 		}
 	}
 end
-defaultSetup(); -- call default setup setting so we can actually do stuff
-
+defaultSetup() -- call default setup setting so we can actually do stuff
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", function() defaultSetup(); builtin.find_files(); end, {}) -- find files
-vim.keymap.set("n", "<leader>fF", function() dotfileSetup(); builtin.find_files(); end, {}) -- find files
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {}) -- live grep
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {}) -- builtin buffers
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- builtin help tags
-vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {}) -- colorschemes
+local disrespectGitignore = true;
+vim.keymap.set("n", "<leader>fi", function() disrespectGitignore = true; print("disrepectgitignore = true"); end, {})
+vim.keymap.set("n", "<leader>fI", function() disrespectGitignore = false; print("disrepectgitignore = false"); end, {})
+
+vim.keymap.set("n", "<leader>fd", function() defaultSetup(); print("telescope no dotfiles"); end, {})
+vim.keymap.set("n", "<leader>fD", function() dotfileSetup(); print("telescope dotfiles"); end, {})
+
+vim.keymap.set("n", "<leader>ff", function() builtin.find_files({ no_ignore = disrespectGitignore }); end, {}) -- find files
+vim.keymap.set("n", "<leader>fF", function() builtin.find_files({ no_ignore = disrespectGitignore }); end, {}) -- find files
+vim.keymap.set("n", "<leader>fg", function() builtin.live_grep({ no_ignore = disrespectGitignore }); end, {}) -- live grep
+vim.keymap.set("n", "<leader>fb", function() builtin.buffers({ no_ignore = disrespectGitignore }); end, {}) -- builtin buffers
+vim.keymap.set("n", "<leader>fh", function() builtin.help_tags({ no_ignore = disrespectGitignore }); end, {}) -- builtin help tags
+vim.keymap.set("n", "<leader>fc", function() builtin.colorscheme({ no_ignore = disrespectGitignore }); end, {}) -- colorschemes
 
 
 
