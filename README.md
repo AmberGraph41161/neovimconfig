@@ -1,8 +1,5 @@
 # neovimconfig
 
-Personal neovim config files as of Wednesday, October 23, 2024, 13:49:45
+Personal neovim config files as of Sunday, October 27, 2024, 00:06:47
 
-yes, I now git push from terminal.
-
-Note
-    I always delete the .git  directory every single time after I git push
+forgot to edit this timestamp for the last commit lol
