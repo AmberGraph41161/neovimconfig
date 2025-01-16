@@ -5,7 +5,28 @@ vim.opt.listchars =
 	eol = "",
 	trail = "󰞙",
 	tab = " ",
+	--space = "󱁐",
 }
+
+function SHOWSPACEINLISTCHARS(showInvisibleSpaceCharacters)
+	if showInvisibleSpaceCharacters then
+		vim.opt.listchars =
+		{
+			eol = "",
+			trail = "󰞙",
+			tab = " ",
+			space = "󱁐",
+		}
+	else
+		vim.opt.listchars =
+		{
+			eol = "",
+			trail = "󰞙",
+			tab = " ",
+		}
+	end
+end
+
 
 
 ---| THE MOUSE MAKES YOU SLOW |---
@@ -51,6 +72,12 @@ vim.opt.tabline = "" -- man this is complicated. will just leave as default cuz 
 --vim.opt.equalalways = true
 --vim.opt.splitright = true
 --vim.opt.splitbelow = true
+
+---| COMMENTS |---
+--:help fo-table
+--:help formatoptions
+vim.opt.formatoptions:remove({'c', 'r', 'o', '/'})
+--vim.opt.formatoptions:append({})
 
 ---| BUFFERS |---
 vim.opt.hidden = true -- keep buffers open, even when not seen

@@ -15,7 +15,7 @@ vim.keymap.set("n", "<C-s>", ":w<Enter>", { silent = false }) -- save file on ct
 vim.keymap.set("i", "<C-s>", "<Escape>:w<Enter>", { silent = false }) -- save file on ctrl-s
 vim.keymap.set("n", "<A-s>", ":mks! session.vim", { silent = false}) -- save session on alt-s
 vim.keymap.set("i", "<A-s>", "<Escape>:mks! session.vim", { silent = false}) -- save session on alt-s
-vim.keymap.set("n", "<C-a>", "gg^vG$", { silent = false }) -- select all on ctrl-a
+vim.keymap.set("n", "<A-a>", "gg^vG$", { silent = false }) -- select all on alt-a
 vim.keymap.set("n", "=", "<C-a>", { noremap = true, silent = false }) -- increment numbers
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = false }) -- decrement numbers
 vim.keymap.set("n", "n", "nzz", { silent = false }) -- center screen when going to next search result
@@ -101,3 +101,9 @@ function GETDATEWAYLAND() -- only works for wayland cuz wl-clipboard shenanigans
 end
 
 vim.keymap.set("n", "<Leader>d", ":lua GETDATEWAYLAND()<CR>", { silent = true })
+
+---| SHOW INVISIBLE SPACE CHARACTERS |---
+-- defined in views.lua
+vim.keymap.set("n", "<Leader>s", ":lua SHOWSPACEINLISTCHARS(false)<CR>", { silent = false});
+vim.keymap.set("n", "<Leader>S", ":lua SHOWSPACEINLISTCHARS(true)<CR>", { silent = false});
+

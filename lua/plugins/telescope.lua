@@ -34,7 +34,7 @@ end
 defaultSetup() -- call default setup setting so we can actually do stuff
 
 local builtin = require("telescope.builtin")
-local disrespectGitignore = true;
+local disrespectGitignore = false;
 vim.keymap.set("n", "<leader>fi", function() disrespectGitignore = true; print("disrepectgitignore = true"); end, {})
 vim.keymap.set("n", "<leader>fI", function() disrespectGitignore = false; print("disrepectgitignore = false"); end, {})
 
