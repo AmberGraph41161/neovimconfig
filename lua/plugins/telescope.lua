@@ -1,3 +1,6 @@
+-- as of Thursday, March 06, 2025, 16:17:36
+-- telescope live grep requires ripgrep
+
 -- different togglable setup settings
 local function defaultSetup()
 	require("telescope").setup {

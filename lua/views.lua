@@ -27,10 +27,13 @@ function SHOWSPACEINLISTCHARS(showInvisibleSpaceCharacters)
 	end
 end
 
-
-
 ---| THE MOUSE MAKES YOU SLOW |---
 vim.opt.mouse = ""
+
+---| CURSOR |---
+--vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor-blinkwait0-blinkon10-blinkoff10,r-cr-o:hor20"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
+--vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25-Cursor,r-cr-o:hor20"
 
 ---| CURSOR/LINE PROPERTIES |---
 vim.opt.wrap = false

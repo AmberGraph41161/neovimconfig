@@ -39,6 +39,28 @@ local mappingpreset = {
 	["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	["<C-n>"] = cmp.mapping.complete(),
 	["<C-m>"] = cmp.mapping.abort(),
+
+	--"https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip"
+	--[[
+	["<C-n"] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif require("luasnip").locally_jumpable(1) then
+			require("luasnip").jump(1)
+		else
+			fallback()
+		end
+	end, { "i", "s" }),
+	["<C-N"] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_prev_item()
+		elseif require("luasnip").locally_jumpable(-1) then
+			require("luasnip").jump(-1)
+		else
+			fallback()
+		end
+	end, { "i", "s" }),
+	]]
 }
 
 cmp.setup({

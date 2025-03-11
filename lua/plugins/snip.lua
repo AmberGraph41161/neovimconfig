@@ -34,7 +34,11 @@ vim.keymap.set({"n"}, "<C-Q-S-B>", function() ls.expand() end, { silent = true }
 vim.keymap.set({"n", "s"}, "<C-Q-B-S>", function() ls.jump( 1) end, { silent = true })
 vim.keymap.set({"n", "s"}, "<C-S-A-D>", function() ls.jump(-1) end, { silent = true })
 
-vim.keymap.set({"n", "s"}, "<C-E>", function()
+--vim.keymap.set({"i"}, "<C-e>", function() ls.expand() end, { silent = true })
+--vim.keymap.set({"i", "s"}, "<C-n>", function() ls.jump( 1) end, { silent = true })
+--vim.keymap.set({"i", "s"}, "<C-N>", function() ls.jump(-1) end, { silent = true })
+
+vim.keymap.set({"n", "s"}, "<C-Q-E>", function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
@@ -68,7 +72,7 @@ ls.add_snippets("all", {
 		})
 	}),
 
-	s(":hellosfmlcpp", {
+	s(":hellosfmlcpp2.x", {
 		t({
 			"#include <SFML/Graphics.hpp>",
 			"",
@@ -84,7 +88,9 @@ ls.add_snippets("all", {
 			"		while (window.pollEvent(event))",
 			"		{",
 			"			if (event.type == sf::Event::Closed)",
+			"			{",
 			"				window.close();",
+			"			}",
 			"		}",
 			"",
 			"		window.clear();",
@@ -94,6 +100,36 @@ ls.add_snippets("all", {
 			"	",
 			"	return 0;",
 			"}",
+		})
+	}),
+
+	s(":hellosfmlcpp3.x", {
+		t({
+			"#include <SFML/Graphics.hpp>",
+			"",
+			"int main()",
+			"{",
+			"	sf::RenderWindow window(sf::VideoMode(sf::Vector2u(1920, 1080)), \"titles goes here\");",
+			"	sf::CircleShape shape(100.f);",
+			"	shape.setFillColor(sf::Color::Green);",
+			"",
+			"	while(window.isOpen())",
+			"	{",
+			"		while(std::optional<sf::Event> event = window.pollEvent())",
+			"		{",
+			"			if(event->getIf<sf::Event::Closed>())",
+			"			{",
+			"				window.close();",
+			"			}",
+			"		}",
+			"",
+			"		window.clear();",
+			"		window.draw(shape);",
+			"		window.display();",
+			"	}",
+			"",
+			"	return 0;",
+			"}"
 		})
 	}),
 
@@ -143,6 +179,37 @@ ls.add_snippets("all", {
 			"Sed in arcu at magna efficitur faucibus. Nulla porttitor sem et neque dignissim, vitae posuere magna tincidunt. Phasellus a tristique ex, et luctus orci. Proin maximus scelerisque leo, non vulputate dolor. Vestibulum cursus nunc eu sem aliquet viverra. Donec dui massa, maximus sed mi et, fringilla aliquet ligula. Sed auctor, libero sit amet tempor luctus, turpis lacus suscipit dolor, id tempus elit enim at massa. In vitae massa vitae velit commodo hendrerit.",
 			"",
 			"Mauris malesuada libero non cursus sagittis. In ac lacus non arcu eleifend volutpat id eu velit. Morbi odio lectus, euismod in mattis nec, mattis eget felis. Duis tempus sit amet sapien rutrum condimentum. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tristique lectus. Nullam a urna ultrices, egestas dolor sit amet, blandit lectus. Mauris in nisl augue. Fusce ante erat, sagittis vel nulla sit amet, ullamcorper euismod risus.",
+		})
+	}),
+
+	s(":NATOphoneticAlphabet",{
+		t({
+		"Alfa",
+		"Bravo",
+		"Charlie",
+		"Delta",
+		"Echo",
+		"Foxtrot",
+		"Golf",
+		"Hotel",
+		"India",
+		"Juliett",
+		"Kilo",
+		"Lima",
+		"Mike",
+		"November",
+		"Oscar",
+		"Papa",
+		"Quebec",
+		"Romeo",
+		"Sierra",
+		"Tango",
+		"Uniform",
+		"Victor",
+		"Whiskey",
+		"Xray",
+		"Yankee",
+		"Zulu",
 		})
 	}),
 })

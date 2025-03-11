@@ -1,8 +1,7 @@
-#as of Saturday, February 15, 2025, 10:58:29
-
+#wrote all this in about 10 minutes or so. rn, as I write this line, it is: Saturday, April 29, 2023, 12:02:55AM
 unmapAll
 
-#keyboard
+#SPEEEEEEED RAHHHHHHH
 map f LinkHints.activateMode
 map F LinkHints.activateModeToOpenInNewTab
 map <c-f> LinkHints.activateModeToOpenInNewForegroundTab
@@ -19,26 +18,26 @@ map h scrollLeft
 map j scrollDown
 map k scrollUp
 map l scrollRight
-map u scrollPageUp
-map d scrollPageDown
-map gg scrollToTop
-map G scrollToBottom
+map J scrollPageDown
+map K scrollPageUp
+map <c-j> scrollToBottom
+map <c-k> scrollToTop
 
 #page shortcuts
 map <c-r> reload
-map <c-h> goBack
-map <c-l> goForward
+map H goBack
+map L goForward
 
 #tab stuff
-map X removeTab
-map t createTab
-map gt nextTab
-map gT previousTab
+map <a-Up> removeTab
+map <a-Down> createTab
+map <a-Left> previousTab
+map <a-Right> nextTab
 
-map gp togglePinTab
-map gd duplicateTab
-map ^ firstTab
-map $ lastTab
+map <c-Up> togglePinTab
+map <c-Down> duplicateTab
+map <c-Left> firstTab
+map <c-Right> lastTab
 map <c-m> toggleMuteTab
 
 #copy and paste yuhhhhh

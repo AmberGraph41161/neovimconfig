@@ -1,4 +1,4 @@
----| mason-lspconfig |---
+---| mason-lspconfig |---lsp
 require("mason-lspconfig").setup {
 	ensure_installed = { "clangd", "lua_ls", "cmake", "jdtls", "pylsp" },
 	automatic_installation = false,
@@ -44,7 +44,10 @@ vim.keymap.set("n", "<Leader>gg", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>gn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>gN", vim.diagnostic.goto_prev)
 
+-- note that 'K' is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists. "https://neovim.io/doc/user/lsp.html"
 vim.keymap.set("n", "<Leader>gh", vim.lsp.buf.hover)
+vim.keymap.set("i", "<A-u>", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<Leader>gu", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.declaration)
 vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation)
