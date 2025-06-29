@@ -1,8 +1,10 @@
 ---| mason-lspconfig |---lsp
+--[[ "https://vi.stackexchange.com/questions/46856/neovim-duplicate-lsp-clients-attached-to-the-buffer"
 require("mason-lspconfig").setup {
 	ensure_installed = { "clangd", "lua_ls", "cmake", "jdtls", "pylsp" },
 	automatic_installation = false,
 }
+]]
 
 ---| cmp-nvim-lsp |---
 	-- "https://github.com/hrsh7th/cmp-nvim-lsp"
