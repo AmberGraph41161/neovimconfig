@@ -85,6 +85,10 @@ cmp.setup({
 	window = {
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
+		documentation = {
+			max_width = 80,
+			max_height = 30
+		}
 	},
 
 	mapping = cmp.mapping.preset.insert(mappingpreset),

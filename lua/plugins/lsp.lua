@@ -48,6 +48,7 @@ vim.keymap.set("n", "<Leader>gN", vim.diagnostic.goto_prev)
 
 -- note that 'K' is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists. "https://neovim.io/doc/user/lsp.html"
 vim.keymap.set("n", "<Leader>gh", vim.lsp.buf.hover)
+vim.keymap.set("i", "<A-h>", vim.lsp.buf.hover)
 vim.keymap.set("i", "<A-u>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<Leader>gu", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.declaration)
