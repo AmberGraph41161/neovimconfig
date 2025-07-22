@@ -1,14 +1,12 @@
 ---| CUSTOM SETTINGS |---
 require("keybinds")
-require("colors")
 require("views")
+require("colors")
 
 ---| PLUGINS |---
 require("plugins")
 
 require("plugins/telescope")
-require("plugins/nvim-tree")
-
 require("plugins/mason")
 require("plugins/lsp")
 require("plugins/nvim-cmp")
@@ -17,6 +15,7 @@ require("plugins/treesitter")
 require("plugins/colorizer")
 
 require("plugins/lualine")
+require("plugins/othercolors")
 
 ---| :D |---
 print("| ~^_^~ ~^_^~ | \"init.lua\" loaded. | ~^_^~ ~^_^~ |")

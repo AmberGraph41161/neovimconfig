@@ -1,138 +1,97 @@
---[[
--- You must run this or `PackerSync` whenever you make changes to your plugin configuration
--- Regenerate compiled loader file
-:PackerCompile
-
--- Remove any disabled or unused plugins
-:PackerClean
-
--- Clean, then install missing plugins
-:PackerInstall
-
--- Clean, then update and install plugins
--- supports the `--preview` flag as an optional first argument to preview updates
-:PackerUpdate
-
--- Perform `PackerUpdate` and then `PackerCompile`
--- supports the `--preview` flag as an optional first argument to preview updates
-:PackerSync
-
--- Show list of installed plugins
-:PackerStatus
-
--- Loads opt plugin immediately
-:PackerLoad completion-nvim ale
-]]--
-
-
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-		vim.cmd [[packadd packer.nvim]]
-		return true
-	end
-	return false
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-
--------------------------------------------------------------------------------------------------------------------------
-
-	---| CD WITH SPEED |---
-	-- fuzzy finder
-	use
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+	
+	---| TELESCOPE |---
 	{
-		"nvim-telescope/telescope.nvim", tag = "0.1.5",
-		requires = { {"nvim-lua/plenary.nvim"} }
-	}
-
-	-- tree file viewer. kinda pointless, might remove idk
-	use
-	{
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-		-- tag = "nightly" -- optional, updated every week
-	}
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8',
+		--branch = '0.1.x',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
 
 	---| COLORS |---
-	use "agude/vim-eldar"
-	use "tomasr/molokai"
-	use "jordst/colorscheme"
-	use "folke/tokyonight.nvim"
-	use "catppuccin/nvim"
-	use "craftzdog/solarized-osaka.nvim"
-	use "NLKNguyen/papercolor-theme"
-	use "miikanissi/modus-themes.nvim"
-	use "rebelot/kanagawa.nvim"
-	use "bluz71/vim-nightfly-colors"
-	use "bluz71/vim-moonfly-colors"
-	use "iagorrr/noctis-high-contrast.nvim"
+	{ "agude/vim-eldar" },
+	{ "tomasr/molokai" },
+	{ "jordst/colorscheme" },
+	{ "folke/tokyonight.nvim" },
+	{ "catppuccin/nvim" },
+	{ "craftzdog/solarized-osaka.nvim" },
+	{ "NLKNguyen/papercolor-theme" },
+	{ "miikanissi/modus-themes.nvim" },
+	{ "rebelot/kanagawa.nvim" },
+	{ "bluz71/vim-nightfly-colors" },
+	{ "bluz71/vim-moonfly-colors" },
+	{ "iagorrr/noctis-high-contrast.nvim" },
 
 	---| BLING |---
-	use "norcalli/nvim-colorizer.lua"
-	use
+	{ "norcalli/nvim-colorizer.lua" },
 	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true }
-	}
+		dependencies = { "kyazdani42/nvim-web-devicons" }
+	},
 
 	---| LSP STUFF |---
 	-- main
-	use "williamboman/mason.nvim" -- manage lsp servers
-	use "williamboman/mason-lspconfig.nvim" -- stuff like "ensure installed" for lsp
-	use "neovim/nvim-lspconfig" -- make nvimlsp setup easier (no hassle)
+	{ "williamboman/mason.nvim" }, -- manage lsp servers
+	{ "williamboman/mason-lspconfig.nvim" }, -- stuff like "ensure installed" for lsp
+	{ "neovim/nvim-lspconfig" }, -- make nvimlsp setup easier (no hassle)
 
 	-- snippets
-	use
 	{
 		"L3MON4D3/LuaSnip",
-		tag = "v2.*",
-		run = "make install_jsregexp"
-	}
-	use "saadparwaiz1/cmp_luasnip" -- bridges custom snippets to nvim-cmp
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp"
+	},
+	{ "saadparwaiz1/cmp_luasnip" }, -- bridges custom snippets to nvim-cmp
 
 	-- autocomplete
-	use "hrsh7th/nvim-cmp"
-	use "hrsh7th/cmp-buffer"
-	use "hrsh7th/cmp-cmdline" -- needs cmp-buffer
-	use "hrsh7th/cmp-path"
-	use "hrsh7th/cmp-nvim-lsp" -- bridge nvim-cmp with lsp stuff
-	use "hrsh7th/cmp-nvim-lsp-signature-help" -- helps with seeing overloaded funtion definitions and stuff
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-cmdline" }, -- needs cmp-buffer
+	{ "hrsh7th/cmp-path" },
+	{ "hrsh7th/cmp-nvim-lsp" }, -- bridge nvim-cmp with lsp stuff
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- helps with seeing overloaded funtion definitions and stuff
 
-	use "amarakon/nvim-cmp-buffer-lines"
-	use "hrsh7th/cmp-calc"
-	use "f3fora/cmp-spell"
-	--use "hrsh7th/cmp-emoji"
-	--use "rasulomaroff/cmp-bufname"
-	--use "PhilRunninger/cmp-rpncalc"
-	--use "dmitmel/cmp-digraphs"
-	--use "hrsh7th/cmp-omni"
+	{ "amarakon/nvim-cmp-buffer-lines" },
+	{ "hrsh7th/cmp-calc" },
+	{ "f3fora/cmp-spell" },
+	--{ "hrsh7th/cmp-emoji" },
+	--{ "rasulomaroff/cmp-bufname" },
+	--{ "PhilRunninger/cmp-rpncalc" },
+	--{ "dmitmel/cmp-digraphs" },
+	--{ "hrsh7th/cmp-omni" },
 
 	-- better syntax highlighting stuff yeaaaa
-	use -- "https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation"
 	{
 		"nvim-treesitter/nvim-treesitter",
-		--run = ":TSUpdate"
-
-		run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+		branch = 'master',
+		lazy = false,
+		build = ":TSUpdate"
 	}
-
-
--------------------------------------------------------------------------------------------------------------------------
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require('packer').sync()
-	end
-end)
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "habamax" } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
