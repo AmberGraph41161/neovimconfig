@@ -1,5 +1,5 @@
 # neovimconfig
 
-Personal neovim config files as of Sunday, October 27, 2024, 00:06:47
+Personal neovim config files as of Tuesday, July 22, 2025, 12:20:05
 
 forgot to edit this timestamp for the last commit lol
