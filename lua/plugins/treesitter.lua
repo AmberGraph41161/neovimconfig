@@ -27,8 +27,6 @@ local enableHighlightingForFilePatterns = {
 	'*.py',
 
 	'*.java',
-
-	'*.zsh'
 }
 
 --vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter', 'BufWinEnter' }, {
