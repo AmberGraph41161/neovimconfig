@@ -1,4 +1,4 @@
----| mason-lspconfig |---lsp
+---| mason-lspconfig |---
 --[[ "https://vi.stackexchange.com/questions/46856/neovim-duplicate-lsp-clients-attached-to-the-buffer"
 require("mason-lspconfig").setup {
 	ensure_installed = { "clangd", "lua_ls", "cmake", "jdtls", "pylsp" },

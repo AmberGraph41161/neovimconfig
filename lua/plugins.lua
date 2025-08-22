@@ -84,8 +84,8 @@ require("lazy").setup({
 	-- better syntax highlighting stuff yeaaaa
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = 'master',
 		lazy = false,
+		branch = 'main',
 		build = ":TSUpdate"
 	}
   },
