@@ -74,7 +74,7 @@ require("lazy").setup({
 
 	{ "amarakon/nvim-cmp-buffer-lines" },
 	{ "hrsh7th/cmp-calc" },
-	{ "f3fora/cmp-spell" },
+	--{ "f3fora/cmp-spell" },
 	--{ "hrsh7th/cmp-emoji" },
 	--{ "rasulomaroff/cmp-bufname" },
 	--{ "PhilRunninger/cmp-rpncalc" },

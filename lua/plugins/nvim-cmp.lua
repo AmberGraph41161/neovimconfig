@@ -100,12 +100,8 @@ cmp.setup({
 		{ name = "luasnip" }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
-		{ name = "buffer" },
-		--{ name = "buffer-lines", option = { words = false, comments = false, line_number = false, line_number_separator = " ", leading_whitespace = true, max_indents = 0, max_size = 100 } }, --"https://github.com/amarakon/nvim-cmp-buffer-lines"
-		-- { name = "spell", option = { keep_all_entries = false, enable_in_context = function() return true end } }, --make sure "vim.opt.spell = true" and "vim.opt.spelllang = { "en_US" }"
-		{ name = "calc" },
-		--{ name = "emoji", option = { insert = true } },
-		--{ name = "rpncalc" },
+		--{ name = "buffer" },
+		--{ name = "calc" },
 		{ name = "nvim_lsp_signature_help"}
 	}),
 
@@ -116,8 +112,7 @@ cmp.setup({
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
 		{ name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-		}, {
-		{ name = "buffer" },
+		{ name = "buffer" }
 	})
 })
 
