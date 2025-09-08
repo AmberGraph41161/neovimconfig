@@ -5,7 +5,6 @@
 local function defaultSetup()
 	require("telescope").setup {
 		defaults = {
-			-- "https://github.com/nvim-telescope/telescope.nvim"
 		},
 		pickers = {
 			find_files = {
@@ -21,7 +20,6 @@ end
 local function dotfileSetup()
 	require("telescope").setup {
 		defaults = {
-			-- "https://github.com/nvim-telescope/telescope.nvim"
 		},
 		pickers = {
 			find_files = {
