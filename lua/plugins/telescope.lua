@@ -39,8 +39,8 @@ local disrespectGitignore = false;
 vim.keymap.set("n", "<leader>fi", function() disrespectGitignore = true; print("disrepectgitignore = true"); end, {})
 vim.keymap.set("n", "<leader>fI", function() disrespectGitignore = false; print("disrepectgitignore = false"); end, {})
 
-vim.keymap.set("n", "<leader>fd", function() defaultSetup(); print("telescope no dotfiles"); end, {})
-vim.keymap.set("n", "<leader>fD", function() dotfileSetup(); print("telescope dotfiles"); end, {})
+vim.keymap.set("n", "<leader>fd", function() dotfileSetup(); print("telescope dotfiles"); end, {})
+vim.keymap.set("n", "<leader>fD", function() defaultSetup(); print("telescope no dotfiles"); end, {})
 
 vim.keymap.set("n", "<leader>ff", function() builtin.find_files({ no_ignore = disrespectGitignore }); end, {}) -- find files
 vim.keymap.set("n", "<leader>fF", function() builtin.find_files({ no_ignore = disrespectGitignore }); end, {}) -- find files
