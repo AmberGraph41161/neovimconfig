@@ -13,25 +13,25 @@ require("mason-lspconfig").setup {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
-require('lspconfig').clangd.setup {
+vim.lsp.enable('clangd', {
 	capabilities = capabilities,
-}
+})
 
-require('lspconfig').lua_ls.setup {
+vim.lsp.enable('lua_ls', {
 	capabilities = capabilities,
-}
+})
 
-require('lspconfig').cmake.setup {
+vim.lsp.enable('cmake', {
 	capabilities = capabilities,
-}
+})
 
-require('lspconfig').jdtls.setup {
+vim.lsp.enable('jdtls', {
 	capabilities = capabilities,
-}
+})
 
-require('lspconfig').pylsp.setup {
+vim.lsp.enable('pylsp', {
 	capabilities = capabilities,
-}
+})
 
 ---| nvim-lspconfig |---
 	--[[ :LspInfo shows the status of active and configured language servers.
