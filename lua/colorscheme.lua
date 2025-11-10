@@ -1,4 +1,4 @@
-local colorschemeFilePath = "colorscheme.txt"
+local colorschemeFilePath = os.getenv("HOME") .. "/.config/nvim/lua/colorscheme.txt"
 
 local file = io.open(colorschemeFilePath, "r")
 if file then
