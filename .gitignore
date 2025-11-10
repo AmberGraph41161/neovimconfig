@@ -1,3 +1,4 @@
-.old/
-plugin/
-lazy-lock.json
+/.old/
+/plugin/
+/lazy-lock.json
+/lua/colorscheme.txt
