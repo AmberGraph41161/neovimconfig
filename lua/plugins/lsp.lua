@@ -29,7 +29,7 @@ vim.lsp.enable('jdtls', {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable('pylsp', {
+vim.lsp.enable('basedpyright', {
 	capabilities = capabilities,
 })
 
