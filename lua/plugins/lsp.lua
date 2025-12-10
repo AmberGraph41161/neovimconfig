@@ -1,18 +1,6 @@
----| mason-lspconfig |---
---[[ "https://vi.stackexchange.com/questions/46856/neovim-duplicate-lsp-clients-attached-to-the-buffer"
-require("mason-lspconfig").setup {
-	ensure_installed = { "clangd", "lua_ls", "cmake", "jdtls", "pylsp" },
-	automatic_installation = false,
-}
-]]
-
 ---| cmp-nvim-lsp |---
-	-- "https://github.com/hrsh7th/cmp-nvim-lsp"
-	-- default config with some mods
-	-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
 vim.lsp.enable('clangd', {
 	capabilities = capabilities,
 })
@@ -34,14 +22,6 @@ vim.lsp.enable('basedpyright', {
 })
 
 ---| nvim-lspconfig |---
-	--[[ :LspInfo shows the status of active and configured language servers.
-	:LspStart <config_name> Start the requested server name. Will only successfully start if the command detects a root directory matching the current config. Pass autostart = false to your .setup{} call for a language server if you would like to launch clients solely with this command. Defaults to all servers matching current buffer filetype.
-	:LspStop <client_id> Defaults to stopping all buffer clients.
-	:LspRestart <client_id> Defaults to restarting all buffer clients.
-	]]
-
-	-- "https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md"
-
 vim.keymap.set("n", "<Leader>gg", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>gn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>gN", vim.diagnostic.goto_prev)

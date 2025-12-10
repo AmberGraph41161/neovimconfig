@@ -81,6 +81,7 @@ require("lazy").setup({
 	--{ "PhilRunninger/cmp-rpncalc" },
 	--{ "dmitmel/cmp-digraphs" },
 	--{ "hrsh7th/cmp-omni" },
+	--{ "onsails/lspkind.nvim" },
 
 	-- better syntax highlighting stuff yeaaaa
 	{

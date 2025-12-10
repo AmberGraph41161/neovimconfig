@@ -1,8 +1,7 @@
--- "https://github.com/hrsh7th/nvim-cmp"
--- default config with some mods
+--"https://github.com/hrsh7th/nvim-cmp"
+--default config with some mods
 
 --[[
-
 	NOTE TO SELF PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS
 
 	as of Monday, April 1, 2024, 5:12:21PM:
@@ -15,7 +14,7 @@
 		"^I" is what is displayed for <Tab> when doing ":set list", and I remembered while debugging today that in "^I", the "^" symbol is typically
 		used as an escape character of sorts (maybe not semantically but ye), to show in some sort of shell that you hit "ctrl" + "[insert keystroke here]"
 			(try "ctrl + l" in insert mode, as typically "ctrl + l" isn't mapped in vim/nvim ... should print '^L' as one character)
-		
+
 		...
 
 		this is what was causing the issue. I happened to have "<C-i>" mapped to "cmd.mapping.open_docs()", and as I've explained, "ctrl" + "[insert keystroke here]"
@@ -26,7 +25,6 @@
 	end note Monday, April 1, 2024, 5:22:48PM
 ]]
 
-
 local cmp = require("cmp")
 
 local mappingpreset = {
@@ -36,7 +34,7 @@ local mappingpreset = {
 	["<C-j>"] = cmp.mapping.scroll_docs(1),
 	["<C-u>"] = cmp.mapping.open_docs(),
 	["<C-y>"] = cmp.mapping.close_docs(),
-	["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	["<CR>"] = cmp.mapping.confirm({ select = false }), --Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	["<C-n>"] = cmp.mapping.complete(),
 	["<C-m>"] = cmp.mapping.abort(),
 
@@ -63,43 +61,121 @@ local mappingpreset = {
 	]]
 }
 
+local kind_icons = {
+	Text = "",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰇽",
+	Variable = "󰂡",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+	Struct = "",
+	Event = "",
+	Operator = "󰆕",
+	TypeParameter = "󰅲",
+}
+
+local cmp_kinds = {
+	Text = "  ",
+	Method = "  ",
+	Function = "  ",
+	Constructor = "  ",
+	Field = "  ",
+	Variable = "  ",
+	Class = "  ",
+	Interface = "  ",
+	Module = "  ",
+	Property = "  ",
+	Unit = "  ",
+	Value = "  ",
+	Enum = "  ",
+	Keyword = "  ",
+	Snippet = "  ",
+	Color = "  ",
+	File = "  ",
+	Reference = "  ",
+	Folder = "  ",
+	EnumMember = "  ",
+	Constant = "  ",
+	Struct = "  ",
+	Event = "  ",
+	Operator = "  ",
+	TypeParameter = "  ",
+}
+
 cmp.setup({
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
+		--REQUIRED - you must specify a snippet engine
 		expand = function(args)
-		-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-		require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-		-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-		-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-		-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+		--vim.fn["vsnip#anonymous"](args.body) --For `vsnip` users.
+		require("luasnip").lsp_expand(args.body) --For `luasnip` users.
+		--require('snippy').expand_snippet(args.body) --For `snippy` users.
+		--vim.fn["UltiSnips#Anon"](args.body) --For `ultisnips` users.
+		--vim.snippet.expand(args.body) --For native neovim snippets (Neovim v0.10+)
 	  end,
 	},
 
 	view = {
-		-- "https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance"
-		--entries = { name = "wildmenu", separator = "|", selection_order = "near_cursor"}, -- can be "custom", "wildmenu" or "native"
-		--entries = { name = "custom", selection_order = "near_cursor"}, -- can be "custom", "wildmenu" or "native"
-		entries = { name = "custom", selection_order = "top_down"}, -- can be "custom", "wildmenu" or "native"
+		--"https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance"
+		--entries = { name = "wildmenu", separator = "|", selection_order = "near_cursor"}, --can be "custom", "wildmenu" or "native"
+		--entries = { name = "custom", selection_order = "near_cursor"}, --can be "custom", "wildmenu" or "native"
+		entries = { name = "custom", selection_order = "top_down"}, --can be "custom", "wildmenu" or "native"
 	},
 
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		--completion = cmp.config.window.bordered(),
+		--documentation = cmp.config.window.bordered(),
 		documentation = {
 			max_width = 80,
 			max_height = 30
 		}
 	},
 
+	formatting = {
+		format = function(entry, vim_item)
+			--https://github.com/hrsh7th/nvim-cmp/issues/88
+			--https://github.com/hrsh7th/nvim-cmp/issues/980
+			--local truncatedAbbr = string.sub(vim_item.abbr, 1, 100)
+			--local truncatedAbbr = string.sub(vim_item.abbr, 1, vim.api.nvim_win_get_width(0) / 2)
+			local truncatedAbbr = string.sub(vim_item.abbr, 1, vim.o.columns / 2)
+			if truncatedAbbr ~= vim_item.abbr then
+				vim_item.abbr = truncatedAbbr .. "  …"
+			end
+			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+			vim_item.menu = ({
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[Lua]",
+				latex_symbols = "[LaTeX]"
+			})[entry.source.name]
+			return vim_item
+		end
+	},
+
 	mapping = cmp.mapping.preset.insert(mappingpreset),
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		-- { name = 'vsnip' }, -- For vsnip users.
-		-- { name = "luasnip", option = { use_show_condition = false, show_autosnippets = true } }, -- For luasnip users.
-		{ name = "luasnip" }, -- For luasnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
+		--{ name = 'vsnip' }, --For vsnip users.
+		--{ name = "luasnip", option = { use_show_condition = false, show_autosnippets = true } }, --For luasnip users.
+		{ name = "luasnip" }, --For luasnip users.
+		--{ name = 'ultisnips' }, --For ultisnips users.
+		--{ name = 'snippy' }, --For snippy users.
 		--{ name = "buffer" },
 		--{ name = "calc" },
 		{ name = "nvim_lsp_signature_help"}
@@ -108,17 +184,17 @@ cmp.setup({
 	preselect = cmp.PreselectMode.None
 })
 
--- Set configuration for specific filetype.
+--Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
-		{ name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+		{ name = "git" }, --You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
 		{ name = "buffer" }
 	})
 })
 
 cmp.setup.filetype("text", {
 	sources = cmp.config.sources({
-		{ name = "luasnip" }, -- For luasnip users.
+		{ name = "luasnip" }, --For luasnip users.
 		{ name = "buffer" },
 		{
 			name = "buffer-lines", --"https://github.com/amarakon/nvim-cmp-buffer-lines"
@@ -129,23 +205,17 @@ cmp.setup.filetype("text", {
 				line_number_separator = " ",
 				leading_whitespace = true,
 				max_indents = 0,
-				max_size = 1024 -- (1024KiB is 1MiB) max size in kB for which this plugin will load
+				max_size = 1024 --(1024KiB is 1MiB) max size in kB for which this plugin will load
 			}
 		},
-		-- { name = "spell", option = { keep_all_entries = false, enable_in_context = function() return true end } }, --make sure "vim.opt.spell = true" and "vim.opt.spelllang = { "en_US" }"
+		--{ name = "spell", option = { keep_all_entries = false, enable_in_context = function() return true end } }, --make sure "vim.opt.spell = true" and "vim.opt.spelllang = { "en_US" }"
 		{ name = "calc" },
 		--{ name = "emoji", option = { insert = true } },
 		--{ name = "rpncalc" },
 	})
 })
 
-cmp.setup.filetype("zsh", {
-	sources = cmp.config.sources({
-		{ name = "buffer" },
-	})
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+--Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(mappingpreset),
 	--mapping = cmp.mapping.preset.cmdline(),
@@ -154,7 +224,7 @@ cmp.setup.cmdline({ "/", "?" }, {
 	}
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+--Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(mappingpreset),
 	--mapping = cmp.mapping.preset.cmdline(),
