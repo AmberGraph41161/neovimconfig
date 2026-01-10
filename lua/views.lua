@@ -2,7 +2,7 @@
 vim.opt.list = true -- will make trailing spaces show (TOGGLE KEYBINDS)
 vim.opt.listchars =
 {
-	eol = "",
+	eol = "󰌑",
 	trail = "󰞙",
 	tab = " ",
 	--space = "󱁐",
@@ -12,7 +12,7 @@ function SHOWSPACEINLISTCHARS(showInvisibleSpaceCharacters)
 	if showInvisibleSpaceCharacters then
 		vim.opt.listchars =
 		{
-			eol = "",
+			eol = "󰌑",
 			trail = "󰞙",
 			tab = " ",
 			space = "󱁐",
@@ -20,7 +20,7 @@ function SHOWSPACEINLISTCHARS(showInvisibleSpaceCharacters)
 	else
 		vim.opt.listchars =
 		{
-			eol = "",
+			eol = "󰌑",
 			trail = "󰞙",
 			tab = " ",
 		}
