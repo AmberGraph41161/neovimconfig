@@ -42,7 +42,6 @@ vim.opt.relativenumber = true -- on by default (TOGGLE KEYBINDS)
 vim.opt.cursorline = true -- cursorline on by default (TOGGLE KEYBINDS)
 vim.opt.cursorcolumn = true -- cursorcolumn on by default (TOGGLE KEYBINDS)
 vim.opt.cursorlineopt = "line" -- "line", "screenline", "number", "both" (line,number), (line and screenline cannot be used together)
-vim.opt.scroll = 10
 vim.opt.ruler = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 20
