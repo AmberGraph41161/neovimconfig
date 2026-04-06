@@ -43,7 +43,6 @@ require("lazy").setup({
 	{ "iagorrr/noctis-high-contrast.nvim" },
 
 	---| BLING |---
-	{ "norcalli/nvim-colorizer.lua" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" }

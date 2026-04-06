@@ -21,6 +21,10 @@ vim.lsp.enable('basedpyright', {
 	capabilities = capabilities,
 })
 
+vim.lsp.enable('ocamllsp', {
+	capabilities = capabilities,
+})
+
 ---| nvim-lspconfig |---
 vim.keymap.set("n", "<Leader>gg", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>gn", vim.diagnostic.goto_next)

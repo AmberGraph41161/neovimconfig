@@ -12,7 +12,6 @@ require("plugins/lsp")
 require("plugins/nvim-cmp")
 require("plugins/snip")
 require("plugins/treesitter")
-require("plugins/colorizer")
 require("plugins/lualine")
 
 require("colorscheme") -- load after plugins for plugin downloaded colors to work
