@@ -5,11 +5,11 @@ vim.lsp.enable('clangd', {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable('lua_ls', {
+vim.lsp.enable('emmylua_ls', {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable('cmake', {
+vim.lsp.enable('neocmake', {
 	capabilities = capabilities,
 })
 
