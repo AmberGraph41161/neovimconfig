@@ -9,7 +9,7 @@ vim.lsp.enable('lua_ls', {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable('cmake', {
+vim.lsp.enable('neocmake', {
 	capabilities = capabilities,
 })
 
