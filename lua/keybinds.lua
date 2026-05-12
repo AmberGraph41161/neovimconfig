@@ -1,8 +1,5 @@
 vim.g.mapleader = " " -- LEADER KEYYYYYYYYYYY
 
---legacy stuff for reference Saturday, October 26, 2024, 23:43:04
-	--vim.api.nvim_set_keymap
-
 ---| I like having my cursor centered on the screen ok? Leave me alone >:( |---
 vim.keymap.set("n", "{", "{zz", { silent = false }) -- center screen after shift-{
 vim.keymap.set("n", "}", "}zz", { silent = false }) -- center screen after shift-}
@@ -24,25 +21,6 @@ vim.keymap.set("n", "<C-r>", "R", { noremap = true, silent = false }) -- swap ct
 vim.keymap.set("n", "R", "<C-r>", { noremap = true, silent = false }) -- swap r with ctrl-r (swap replacemode with undo)
 vim.keymap.set("n", "U", "u", { noremap = true, silent = false }) -- U and u are synonymous now
 --vim.keymap.set("i", "<C-BS>", "<Escape>dBi", {noremap = true, silent = false})
-
----| toggle settings |---
--- deprecated as of Wednesday, August 14, 2024, 15:35:07, I am better at nvim now
---vim.keymap.set("n", "<A-O>", ":set hls<CR>", { silent = true }) -- highlight search
---vim.keymap.set("n", "<A-P>", ":set nohls<CR>", { silent = true }) -- don't highlight search
---vim.keymap.set("n", "<A-K>", ":set list<CR>", { silent = true }) -- show invisible chars
---vim.keymap.set("n", "<A-L>", ":set nolist<CR>", { silent = true }) -- don't show invisible chars
---vim.keymap.set("n", "<A-{>", ":set cul<CR>", { silent = true }) -- show cursor line
---vim.keymap.set("n", "<A-}>", ":set nocul<CR>", { silent = true }) -- don't show cursor line
---vim.keymap.set("n", "<A-:>", ":set cuc<CR>", { silent = true }) -- show cursor column
---vim.keymap.set("n", "<A-\">", ":set nocuc<CR>", { silent = true }) -- don't show cursor column
---vim.keymap.set("n", "<A-N>", ":set rnu<CR>", { silent = true }) -- show relativenumbers
---vim.keymap.set("n", "<A-M>", ":set nornu<CR>", { silent = true }) -- don't show relativenumbers
---vim.keymap.set("n", "<A-V>", ":set nu<CR>", { silent = true }) -- show line numbers
---vim.keymap.set("n", "<A-B>", ":set nonu<CR>", { silent = true }) -- don't show line numbers
---vim.keymap.set("n", "<A-A>", ":set spell<CR>", { silent = true }) -- spellcheck on
---vim.keymap.set("n", "<A-S>", ":set nospell<CR>", { silent = true }) -- spellcheck off
---vim.keymap.set("n", "<A-Z>", ":set wrap<CR>:set spell<CR>:set nocul<CR>:set nocuc<CR>", { silent = true }) -- DOCUMENT MODE
---vim.keymap.set("n", "<A-X>", ":set nowrap<CR>:set nospell<CR>:set cul<CR>:set cuc<CR>", { silent = true }) -- CODE MODE
 
 ---| SPLIT WINDOWS |---
 vim.keymap.set("n", "<A-u>", ":split<CR>", { silent = true }) -- top to bottom split

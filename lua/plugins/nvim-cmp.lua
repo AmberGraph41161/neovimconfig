@@ -1,30 +1,3 @@
---"https://github.com/hrsh7th/nvim-cmp"
---default config with some mods
-
---[[
-	NOTE TO SELF PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS PLEASE READ THIS
-
-	as of Monday, April 1, 2024, 5:12:21PM:
-		finally fixed an issue of <Tab> not working in insert mode
-		I did about... I wanna say 58 minutes of debugging
-			(since I logged on today, with the output of "uptime" command being: "17:13:08 up 58 min,  1 user,  load average: 0.56, 0.47, 0.40")
-
-		this was sort of a stroke of luck figuring this one out. I remembered that in regular vim, today, while I was playing around at school,
-			(thank you "https://codedamn.com/online-compiler/bash" btw, cuz the school blocks crap for no reason)
-		"^I" is what is displayed for <Tab> when doing ":set list", and I remembered while debugging today that in "^I", the "^" symbol is typically
-		used as an escape character of sorts (maybe not semantically but ye), to show in some sort of shell that you hit "ctrl" + "[insert keystroke here]"
-			(try "ctrl + l" in insert mode, as typically "ctrl + l" isn't mapped in vim/nvim ... should print '^L' as one character)
-
-		...
-
-		this is what was causing the issue. I happened to have "<C-i>" mapped to "cmd.mapping.open_docs()", and as I've explained, "ctrl" + "[insert keystroke here]"
-		produces the output of "^[insert keystroke here]". In my case, mapping "<C-i>", was redirecting any "<Tab>" characters to do whatever "<C-i>" was mapped to,
-		as again, "<C-i>" produces "^I", which is the same this as how "<Tab>" is equivalent to "^I"
-
-		to anybody reading this... don't waste your time and keep "<C-i>" unmapped for any insert mode bindings...
-	end note Monday, April 1, 2024, 5:22:48PM
-]]
-
 local cmp = require("cmp")
 
 local mappingpreset = {

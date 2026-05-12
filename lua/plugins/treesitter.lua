@@ -11,8 +11,6 @@ require'nvim-treesitter'.install {
 	"bash",
 }
 
--- https://www.reddit.com/r/neovim/comments/1kuj9xm/has_anyone_successfully_switched_to_the_new/
-
 local enableHighlightingForFilePatterns = {
 	'*.cpp',
 	'*.cc',
