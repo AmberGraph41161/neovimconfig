@@ -27,8 +27,8 @@ vim.lsp.enable('ocamllsp', {
 
 ---| nvim-lspconfig |---
 vim.keymap.set("n", "<Leader>gg", vim.diagnostic.open_float)
-vim.keymap.set("n", "<Leader>gn", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<Leader>gN", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<Leader>gn", function() vim.diagnostic.jump({ count = 1, float = false }) end)
+vim.keymap.set("n", "<Leader>gN", function() vim.diagnostic.jump({ count = -1, float = false }) end)
 
 vim.keymap.set("n", "<Leader>gh", vim.lsp.buf.hover)
 vim.keymap.set("i", "<A-h>", vim.lsp.buf.hover)
