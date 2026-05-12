@@ -29,18 +29,7 @@ require("lazy").setup({
 	},
 
 	---| COLORS |---
-	{ "agude/vim-eldar" },
 	{ "tomasr/molokai" },
-	{ "jordst/colorscheme" },
-	{ "folke/tokyonight.nvim" },
-	{ "catppuccin/nvim" },
-	{ "craftzdog/solarized-osaka.nvim" },
-	{ "NLKNguyen/papercolor-theme" },
-	{ "miikanissi/modus-themes.nvim" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "bluz71/vim-nightfly-colors" },
-	{ "bluz71/vim-moonfly-colors" },
-	{ "iagorrr/noctis-high-contrast.nvim" },
 
 	---| BLING |---
 	{
