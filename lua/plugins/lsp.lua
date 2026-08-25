@@ -9,10 +9,6 @@ vim.lsp.enable('lua_ls', {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable('neocmake', {
-	capabilities = capabilities,
-})
-
 vim.lsp.enable('jdtls', {
 	capabilities = capabilities,
 })
